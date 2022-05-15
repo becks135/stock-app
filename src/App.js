@@ -71,7 +71,7 @@ console.log(process.env.REACT_APP_IEX_TOKEN_SANDBOX)
   return (
     <div className="App">
       <p>{iexToken}</p>
-      <p>{iexURL}</p>
+      <p>{iexUrl}</p>
     </div>
   );
 }
