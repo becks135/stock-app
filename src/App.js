@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import React, { Component, useEffect } from "react";
+// import React, { useEffect } from "react";
 
 function App() {
 
@@ -35,9 +34,9 @@ const getQuote = (symbol) => {
 
 console.log(process.env.REACT_APP_IEX_TOKEN_SANDBOX)
 
-useEffect(()=>{
+
   getQuote("AAPL");
-},[])
+
 
 //   $.ajax({
 //     url: `${app.IEX_URLBASE}/stock/${symbol}/quote`,
