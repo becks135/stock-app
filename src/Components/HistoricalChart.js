@@ -3,16 +3,19 @@ import { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import iexApi from "../modules/iexApi";
 
-const HistoricalChart = ({symbol, range}) => {
-    const [prices, setPrices] = useState([]);
-    const [dates, setDates] = useState([]);
-    const [historicalData, setHistoricalData] = useState([]);
+const HistoricalChart = ({symbol}) => {
+    const [prices, setPrices] = useState(null);
+    const [dates, setDates] = useState(null);
+    const [historicalData, setHistoricalData] = useState(null);
+
+    
 
     useEffect(() => {
         // !note, range will not be passed in as prop. will get this from radio button on page
         const fetchHistoricalData = async (symbol,range) => {
             let historicalInfo = await iexApi.getHistoricalPrices(symbol,range);
 
+            console.log({symbol, range})
             let closingPrices = [];
             let dates = [];
 
@@ -24,8 +27,11 @@ const HistoricalChart = ({symbol, range}) => {
             setPrices(closingPrices);
             setDates(dates);
         };
-        fetchHistoricalData(symbol, range);
-    }, []);
+        if(symbol) {
+            console.log({symbol})
+            fetchHistoricalData(symbol, "1w");
+        }
+    },[symbol]);
 
     const createDataTable = () => {
         let jointArray=[["date","price"]];
@@ -33,11 +39,12 @@ const HistoricalChart = ({symbol, range}) => {
             jointArray.push([dates[i],prices[i]]);
         }
         setHistoricalData(jointArray);
-        
     }
 
     useEffect(()=>{
-        createDataTable();
+        if(prices && dates){
+            createDataTable();
+        }
     },[prices,dates])
 
     const options = {

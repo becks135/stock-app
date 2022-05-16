@@ -14,41 +14,47 @@ function App() {
   const [display, setDisplay] = new useState(false);
   const[stockSymbol, setStockSymbol] = new useState("");
   const[historicalPrices, setHistoricalPrices] = new useState([]);
+  const[searchInput, setSearchInput] = new useState(null);
 
   useEffect(()=> {  
-    const fetchData = async(searchQuery) => {
-      let data = await iexApi.searchForSymbol(searchQuery);
-      setStockSymbol(data[0].symbol);
-
-      setHistoricalPrices(await iexApi.getHistoricalPrices("SPY"));
-      
+    if(searchInput){
+      const fetchData = async(searchQuery) => {
+        let data = await iexApi.searchForSymbol(searchQuery);
+        setStockSymbol(data[0].symbol);
+      }
+      fetchData(searchInput);
     }
-    fetchData("Netflix");
-  },[])
+  },[searchInput])
 
-console.log({historicalPrices});
 
 const doSomething = (e) => {
   e.preventDefault();
-  setDisplay(true);
-  console.log(display);
+  const userQuery = document.getElementById("stockInput").value;
+  setSearchInput(userQuery);
+  console.log(stockSymbol);
 }
 
 
     return (
       <div className="App">
         <h1>Stock App</h1>
-        <h2>{stockSymbol}</h2>
+  
 
-        <form onSubmit={(e)=>{doSomething(e)}}>
-          <input type="text"/>
+        <form onSubmit={(e)=>{
+            doSomething(e);
+            setDisplay(true);
+          }}>
+          <input 
+            type="text"
+            id="stockInput"
+          />
           <button type='submit'>Go</button>
         </form>
 
-      {display?
+      {(display&&stockSymbol)?
       <>
-        <p>I'm here</p>
-        <HistoricalChart symbol="AAPL" range="1w"/>
+        <p>{stockSymbol}</p>
+        <HistoricalChart symbol={stockSymbol} range="1w"/>
       </>
       :
         <TrendList trendType="gainers"/>

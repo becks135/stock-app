@@ -14,8 +14,6 @@ const TrendList = ({trendType}) => {
         fetchTrendData(trendType);
     }, []);
 
-    console.log({trendData})
-
     const listHeading = {
         mostactive: "Most Active",
         gainers: "Biggest Gainers",
