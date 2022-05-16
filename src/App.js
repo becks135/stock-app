@@ -5,25 +5,54 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import iexApi from './modules/iexApi';
 
+//components
+import TrendList from './Components/TrendList';
+import HistoricalChart from './Components/HistoricalChart';
+
 function App() {
 
-  const[test, setTest] = new useState([]);
+  const [display, setDisplay] = new useState(false);
+  const[stockSymbol, setStockSymbol] = new useState("");
+  const[historicalPrices, setHistoricalPrices] = new useState([]);
 
   useEffect(()=> {  
     const fetchData = async(searchQuery) => {
-      let data = await iexApi.symbolSearch(searchQuery);
-      setTest(data);
+      let data = await iexApi.searchForSymbol(searchQuery);
+      setStockSymbol(data[0].symbol);
+
+      setHistoricalPrices(await iexApi.getHistoricalPrices("SPY"));
+      
     }
-    fetchData("google");
+    fetchData("Netflix");
   },[])
 
-console.log(test);
+console.log({historicalPrices});
+
+const doSomething = (e) => {
+  e.preventDefault();
+  setDisplay(true);
+  console.log(display);
+}
 
 
     return (
       <div className="App">
-        {/* <p>{test.symbol}</p> */}
-        {/* <p>{iexApi.symbol}</p> */}
+        <h1>Stock App</h1>
+        <h2>{stockSymbol}</h2>
+
+        <form onSubmit={(e)=>{doSomething(e)}}>
+          <input type="text"/>
+          <button type='submit'>Go</button>
+        </form>
+
+      {display?
+      <>
+        <p>I'm here</p>
+        <HistoricalChart symbol="AAPL" range="1w"/>
+      </>
+      :
+        <TrendList trendType="gainers"/>
+      }
     
       </div>
     );
