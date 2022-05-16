@@ -12,7 +12,7 @@ const TrendList = ({trendType}) => {
             setTrendData(data);
         };
         fetchTrendData(trendType);
-    }, []);
+    }, [trendType]);
 
     const listHeading = {
         mostactive: "Most Active",

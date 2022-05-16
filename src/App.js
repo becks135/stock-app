@@ -13,7 +13,6 @@ function App() {
 
   const [display, setDisplay] = new useState(false);
   const[stockSymbol, setStockSymbol] = new useState("");
-  const[historicalPrices, setHistoricalPrices] = new useState([]);
   const[searchInput, setSearchInput] = new useState(null);
 
   useEffect(()=> {  
@@ -24,7 +23,7 @@ function App() {
       }
       fetchData(searchInput);
     }
-  },[searchInput])
+  },[searchInput,setStockSymbol])
 
 
 const doSomething = (e) => {

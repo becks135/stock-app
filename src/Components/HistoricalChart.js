@@ -33,15 +33,16 @@ const HistoricalChart = ({symbol}) => {
         }
     },[symbol]);
 
-    const createDataTable = () => {
-        let jointArray=[["date","price"]];
-        for (let i = 0; i < prices.length; i++) {
-            jointArray.push([dates[i],prices[i]]);
-        }
-        setHistoricalData(jointArray);
-    }
 
     useEffect(()=>{
+        const createDataTable = () => {
+            let jointArray = [["date", "price"]];
+            for (let i = 0; i < prices.length; i++) {
+                jointArray.push([dates[i], prices[i]]);
+            }
+            setHistoricalData(jointArray);
+        };
+
         if(prices && dates){
             createDataTable();
         }
