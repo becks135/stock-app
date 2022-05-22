@@ -1,6 +1,6 @@
 const StockTile = ({name, price, change, percentChange}) => {
     return(
-        <div className="stock-tile">
+        <li className="stock-tile">
             <h3>{name}</h3>
             <p>{price}</p>
             {
@@ -9,7 +9,7 @@ const StockTile = ({name, price, change, percentChange}) => {
                 :
                     <p className="negative-change">{`${change} (${percentChange}%)`}</p>
             }
-        </div>
+        </li>
     )
 }
 
