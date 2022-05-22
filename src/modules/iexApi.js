@@ -15,17 +15,33 @@ if (iexApi.useSandbox) {
 }
 
 
-iexApi.getQuote = (symbol) => {
-    axios({
-        url: `${iexApi.urlBase}/stock/${symbol}/quote`,
-        method: "GET",
-        dataResponse: "json",
-        params: {
-            token: iexApi.token,
-        },
-    }).then((response) => {
-        // console.log(response.data);
-    }).catch((err) => console.log(err));
+// iexApi.getQuote = (symbol) => {
+//     axios({
+//         url: `${iexApi.urlBase}/stock/${symbol}/quote`,
+//         method: "GET",
+//         dataResponse: "json",
+//         params: {
+//             token: iexApi.token,
+//         },
+//     }).then((response) => {
+//         // console.log(response.data);
+//     }).catch((err) => console.log(err));
+// };
+
+iexApi.getQuote = async (symbol) => {
+    try{
+        const {data:response} = await axios({
+            url: `${iexApi.urlBase}/stock/${symbol}/quote`,
+            method: "GET",
+            dataResponse: "json",
+            params: {
+                token: iexApi.token,
+            },
+        });
+        return response;
+    } catch(error) {
+        console.log(error);
+    }
 };
 
 //search for stock symbol (ticker) from user input
