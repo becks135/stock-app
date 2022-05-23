@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import IndexesEtfs from "./IndexesEtfs";
-import StockTile from "./StockTile";
 
 function Home(){
     return(
