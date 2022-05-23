@@ -30,7 +30,6 @@ function Home(){
         e.preventDefault();
         const userQuery = document.getElementById("stockInput").value;
         setSearchInput(userQuery);
-        console.log(stockSymbol);
     };
 
 
