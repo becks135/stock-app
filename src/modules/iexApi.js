@@ -65,14 +65,15 @@ iexApi.searchForSymbol = async (searchInput) => {
 // takes two parameters
 // symbol : ticker/symbol of stock
 // timePeriod: range for data returned
+//! time-series endpoint usings significant API credits.  I decided to always uses sandbox data for the historical chart due to limits on API calls. Data returned purely for illustrative purposes.
 iexApi.getHistoricalPrices = async (symbol, range) => {
     try{
         const { data:response } = await axios({
-            url: `${iexApi.urlBase}/time-series/HISTORICAL_PRICES/${symbol}`,
+            url: `https://sandbox.iexapis.com/stable/time-series/HISTORICAL_PRICES/${symbol}`,
             method:"GET",
             dataResponse:"json",
             params:{
-                token:iexApi.token,
+                token:process.env.REACT_APP_IEX_TOKEN_SANDBOX,
                 range:range,
             }
         });

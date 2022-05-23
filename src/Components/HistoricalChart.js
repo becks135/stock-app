@@ -14,7 +14,7 @@ const HistoricalChart = ({symbol}) => {
     useEffect(() => {
         const fetchHistoricalData = async (symbol,range) => {
             let historicalInfo = await iexApi.getHistoricalPrices(symbol,range);
-
+            
             let closingPrices = [];
             let dates = [];
 
@@ -38,6 +38,7 @@ const HistoricalChart = ({symbol}) => {
             for (let i = 0; i < prices.length; i++) {
                 jointArray.push([dates[i], prices[i]]);
             }
+            console.log(jointArray)
             setHistoricalData(jointArray);
         };
 

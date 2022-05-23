@@ -52,7 +52,7 @@ function Home(){
         {display && stockSymbol ? (
           <StockDetails symbol={stockSymbol} />
         ) : (
-          <TrendList trendType="gainers" />
+          <TrendList trendType="losers" />
         )}
       </>
     );
