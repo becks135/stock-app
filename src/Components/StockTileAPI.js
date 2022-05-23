@@ -14,9 +14,8 @@ const StockTileAPI = ({symbol}) => {
         fetchQuoteData(symbol);
     },[])
 
-
-
     return (
+        // TODO: change back to div and put li at parent level
         <li className="stock-tile">
             {stockInfo ? (
             <>
