@@ -5,6 +5,7 @@ import iexApi from "../modules/iexApi";
 //components
 import StockPriceSummary from "./StockPriceSummary";
 import HistoricalChart from "./HistoricalChart";
+import StockStats from "./StockStats";
 
 const StockDetails = ({symbol}) => {
 
@@ -36,7 +37,19 @@ const StockDetails = ({symbol}) => {
                         date={stockInfo.latestUpdate}
                         dateType="ms"
                     />
-                    <HistoricalChart symbol="AAPL"/>
+
+                    <HistoricalChart symbol={symbol}/>
+
+                    <StockStats
+                        previousClose={stockInfo.previousClose}
+                        yearHigh={stockInfo.week52High}
+                        yearLow={stockInfo.week52Low}
+                        marketCap={stockInfo.marketCap}
+                        volume={stockInfo.volume}
+                        peRatio={stockInfo.peRatio}
+                        primaryExchange={stockInfo.primaryExchange}
+                        currency={stockInfo.currency} />
+
                 </>)
             :
                 <p>Loading...</p>

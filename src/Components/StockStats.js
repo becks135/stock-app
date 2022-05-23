@@ -1,21 +1,21 @@
-const StockStats = ({ dayHigh, dayLow, yearHigh, yearLow, marketCap, volume, peRatio, primaryExchange, aboutCompany }) => {
+import { convertNumber } from "../modules/calculations";
 
+const StockStats = ({ previousClose, yearHigh, yearLow, marketCap, volume, peRatio, primaryExchange, currency, aboutCompany }) => {
     return (
         <>
             <p>
-                <span class="label">Day range:</span> ${dayLow} - ${dayHigh}
+                <span className="label">Previous Close: </span>${previousClose}
             </p>
             <p>
-                <span class="label">Year range:</span> ${yearLow} - ${yearHigh}
+                <span className="label">Year range:</span> ${yearLow} - ${yearHigh}
             </p>
-            <p><span class="label">Market cap:</span>{marketCap}</p>
-            <p><span className="label">Volume:</span>{volume}</p>
-            <p><span className="label">P/E Ratio:</span>{peRatio}</p>
-            <p><span className="label">Primary Exchange</span>{primaryExchange}</p>
-            <p><span className="label">About</span>{aboutCompany}</p>
+            <p><span className="label">Market cap: </span>{convertNumber(marketCap)} {currency}</p>
+            <p><span className="label">Volume: </span>{convertNumber(volume)}</p>
+            <p><span className="label">P/E Ratio: </span>{peRatio}</p>
+            <p><span className="label">Primary Exchange: </span>{primaryExchange}</p>
+            {/* <p><span className="label">About</span>{aboutCompany}</p> */}
         </>
     );
-
 }
 
 export default StockStats;
