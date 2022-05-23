@@ -7,15 +7,14 @@ const HistoricalChart = ({symbol}) => {
     const [prices, setPrices] = useState(null);
     const [dates, setDates] = useState(null);
     const [historicalData, setHistoricalData] = useState(null);
+    const [chartRange, setChartRange] = useState("1w");
 
     
 
     useEffect(() => {
-        // !note, range will not be passed in as prop. will get this from radio button on page
         const fetchHistoricalData = async (symbol,range) => {
             let historicalInfo = await iexApi.getHistoricalPrices(symbol,range);
 
-            console.log({symbol, range})
             let closingPrices = [];
             let dates = [];
 
@@ -28,10 +27,9 @@ const HistoricalChart = ({symbol}) => {
             setDates(dates);
         };
         if(symbol) {
-            console.log({symbol})
-            fetchHistoricalData(symbol, "1w");
+            fetchHistoricalData(symbol, chartRange);
         }
-    },[symbol]);
+    },[symbol, chartRange]);
 
 
     useEffect(()=>{
@@ -64,17 +62,92 @@ const HistoricalChart = ({symbol}) => {
         width: "100%",
     };
 
-    return(
-        <>
-            <h2>Historical Chart</h2>
-            <Chart
-                chartType="AreaChart"
-                height = "400px"
-                data = {historicalData}
-                options = {options}
-            />
-        </>
-    )
+    const handleRangeChange = (e) => {
+        e.preventDefault();
+        setChartRange(e.target.value);
+    }
+
+    return (
+      <>
+        <h2>Historical Chart</h2>
+
+        <fieldset className="chartLabels">
+          <legend>Date range for historical chart</legend>
+          <input
+            type="radio"
+            name="dateRange"
+            id="1w"
+            value="1w"
+            className="dateRange"
+            checked={chartRange === "1w"}
+            onChange={handleRangeChange}
+          />
+          <label htmlFor="1w">1w</label>
+
+          <input
+            type="radio"
+            name="dateRange"
+            id="1m"
+            value="1m"
+            className="dateRange"
+            checked={chartRange === "1m"}
+            onChange={handleRangeChange}
+          />
+          <label htmlFor="1m">1m</label>
+
+          <input
+            type="radio"
+            name="dateRange"
+            id="3m"
+            value="3m"
+            className="dateRange"
+            checked={chartRange === "3m"}
+            onChange={handleRangeChange}
+          />
+          <label htmlFor="3m">3m</label>
+
+          <input
+            type="radio"
+            name="dateRange"
+            id="1y"
+            value="1y"
+            className="dateRange"
+            checked={chartRange === "1y"}
+            onChange={handleRangeChange}
+          />
+          <label htmlFor="1y">1y</label>
+
+          <input
+            type="radio"
+            name="dateRange"
+            id="5y"
+            value="5y"
+            className="dateRange"
+            checked={chartRange === "5y"}
+            onChange={handleRangeChange}
+          />
+          <label htmlFor="5y">5y</label>
+
+          <input
+            type="radio"
+            name="dateRange"
+            id="10y"
+            value="10y"
+            className="dateRange"
+            checked={chartRange === "10y"}
+            onChange={handleRangeChange}
+          />
+          <label htmlFor="10y">10Y</label>
+        </fieldset>
+
+        <Chart
+          chartType="AreaChart"
+          height="400px"
+          data={historicalData}
+          options={options}
+        />
+      </>
+    );
 }
 
 export default HistoricalChart;
