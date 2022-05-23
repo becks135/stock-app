@@ -100,4 +100,21 @@ iexApi.getMarketTrend = async (trend) => {
     }
 };
 
+iexApi.getLatestNews = async (symbol, numberOfArticles) => {
+    try {
+        const { data: response } = await axios({
+            url: `${iexApi.urlBase}/stock/${symbol}/news/last/${numberOfArticles}`,
+            method: "GET",
+            dataResponse: "json",
+            params: {
+                token: iexApi.token,
+                language: "en"
+            },
+        });
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export default iexApi;

@@ -1,16 +1,17 @@
 //modules
 import { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
 import iexApi from "../modules/iexApi";
 
 //components
 import StockPriceSummary from "./StockPriceSummary";
 import HistoricalChart from "./HistoricalChart";
 import StockStats from "./StockStats";
+import NewsAPI from "./News/NewsAPI";
 
 const StockDetails = ({symbol}) => {
 
-    
-
+    // const {symbol} = useParams();
     const [stockInfo, setStockInfo] = useState([]);
 
     //on load, get quote data from quote endpoint and pass to stockInfo state variable
@@ -20,7 +21,7 @@ const StockDetails = ({symbol}) => {
             setStockInfo(data);
         };
         fetchQuoteData(symbol);
-    }, []);
+    }, [symbol]);
 
     console.log({stockInfo});
 
@@ -49,6 +50,8 @@ const StockDetails = ({symbol}) => {
                         peRatio={stockInfo.peRatio}
                         primaryExchange={stockInfo.primaryExchange}
                         currency={stockInfo.currency} />
+
+                    <NewsAPI symbol={symbol}/>
 
                 </>)
             :

@@ -8,7 +8,6 @@ const StockTileAPI = ({symbol}) => {
     useEffect(()=>{
         const fetchQuoteData = async (symbol) => {
             let data = await iexApi.getQuote(symbol);
-            console.log({data});
             setStockInfo(data);
         };
         fetchQuoteData(symbol);
