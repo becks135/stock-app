@@ -17,7 +17,7 @@ function Home(){
     const [stockSymbol, setStockSymbol] = new useState("");
     const [searchInput, setSearchInput] = new useState(null);
     const [selectedTrend, setSelectedTrend] = new useState("mostactive");
-    let navigate = useNavigate();  //todo: change to const?
+    const navigate = useNavigate();  //todo: change to const?
 
     useEffect(() => {
     if (searchInput) {

@@ -1,7 +1,12 @@
 //modules
 import { useState, useEffect } from "react";
+import { getDatabase, ref, update } from "firebase/database";
+
 // import { useParams } from "react-router-dom";
 import iexApi from "../modules/iexApi";
+
+//config
+import firebase from "../config/firebase";
 
 //components
 import StockPriceSummary from "./StockPriceSummary";
@@ -13,6 +18,8 @@ const StockDetails = ({symbol}) => {
 
     // const {symbol} = useParams();
     const [stockInfo, setStockInfo] = useState([]);
+    const userId = "guest";
+    const database = getDatabase(firebase);
 
     //on load, get quote data from quote endpoint and pass to stockInfo state variable
     useEffect(() => {
@@ -22,6 +29,28 @@ const StockDetails = ({symbol}) => {
         };
         fetchQuoteData(symbol);
     }, [symbol]);
+
+    const addToWatchList = (stock) => {
+        const watchListRef = ref(database, `${userId}/watchlist`);
+        return update(watchListRef,stock);
+    }
+
+    const handleAddToWatchList = () => {
+        //check to see if already in watchlist. 
+        //if already there, do nothing
+
+        //otherwise, add to watchlist
+        
+
+        const stockToAdd = {};
+        stockToAdd[symbol] = Date.now();
+
+        addToWatchList(stockToAdd);
+        
+        // onValue(watchListRef, (response) => {
+        //     console.log(response.val());
+        // });
+    }
 
     return(
         <>
@@ -36,6 +65,8 @@ const StockDetails = ({symbol}) => {
                         date={stockInfo.latestUpdate}
                         dateType="ms"
                     />
+
+                    <button onClick={handleAddToWatchList}>Add to watchlist</button>
 
                     <HistoricalChart symbol={symbol}/>
 
