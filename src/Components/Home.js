@@ -14,13 +14,13 @@ function Home(){
     const [display, setDisplay] = new useState(false);
     const [stockSymbol, setStockSymbol] = new useState("");
     const [searchInput, setSearchInput] = new useState(null);
+    const [selectedTrend, setSelectedTrend] = new useState("mostactive");
 
     useEffect(() => {
     if (searchInput) {
         const fetchData = async (searchQuery) => {
             let data = await iexApi.searchForSymbol(searchQuery);
             setStockSymbol(data[0].symbol);
-            console.log({stockSymbol})
         };
         fetchData(searchInput);
     }
@@ -31,6 +31,10 @@ function Home(){
         const userQuery = document.getElementById("stockInput").value;
         setSearchInput(userQuery);
     };
+
+    const handleTrendChange = (e) => {
+      setSelectedTrend(e.target.value);
+    }
 
 
     return (
@@ -52,7 +56,44 @@ function Home(){
         {display && stockSymbol ? (
           <StockDetails symbol={stockSymbol} />
         ) : (
-          <TrendList trendType="losers" />
+          <>
+            <fieldset className="trend-options">
+              <legend>Market trend</legend>
+              <input
+                type="radio"
+                name="trendOption"
+                id="most-active"
+                value="mostactive"
+                className="trendOption"
+                checked={selectedTrend === "mostactive"}
+                onChange={handleTrendChange}
+              />
+              <label htmlFor="most-active">Most active</label>
+
+              <input
+                type="radio"
+                name="trendOption"
+                id="gainers"
+                value="gainers"
+                className="trendOption"
+                checked={selectedTrend === "gainers"}
+                onChange={handleTrendChange}
+              />
+              <label htmlFor="gainers">Gainers</label>
+
+              <input
+                type="radio"
+                name="trendOption"
+                id="losers"
+                value="losers"
+                className="trendOption"
+                checked={selectedTrend === "losers"}
+                onChange={handleTrendChange}
+              />
+              <label htmlFor="losers">Losers</label>
+            </fieldset>
+            <TrendList trendType={selectedTrend} />
+          </>
         )}
       </>
     );
