@@ -38,7 +38,6 @@ const HistoricalChart = ({symbol}) => {
             for (let i = 0; i < prices.length; i++) {
                 jointArray.push([dates[i], prices[i]]);
             }
-            console.log(jointArray)
             setHistoricalData(jointArray);
         };
 
@@ -64,7 +63,6 @@ const HistoricalChart = ({symbol}) => {
     };
 
     const handleRangeChange = (e) => {
-        e.preventDefault();
         setChartRange(e.target.value);
     }
 
@@ -72,7 +70,7 @@ const HistoricalChart = ({symbol}) => {
       <>
         <h2>Historical Chart</h2>
 
-        <fieldset className="chartLabels">
+        <fieldset className="chart-labels">
           <legend>Date range for historical chart</legend>
           <input
             type="radio"

@@ -23,8 +23,6 @@ const StockDetails = ({symbol}) => {
         fetchQuoteData(symbol);
     }, [symbol]);
 
-    console.log({stockInfo});
-
     return(
         <>
             {stockInfo?(
