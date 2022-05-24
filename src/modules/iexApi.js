@@ -14,20 +14,6 @@ if (iexApi.useSandbox) {
     iexApi.token = process.env.REACT_APP_IEX_TOKEN_REAL;
 }
 
-
-// iexApi.getQuote = (symbol) => {
-//     axios({
-//         url: `${iexApi.urlBase}/stock/${symbol}/quote`,
-//         method: "GET",
-//         dataResponse: "json",
-//         params: {
-//             token: iexApi.token,
-//         },
-//     }).then((response) => {
-//         // console.log(response.data);
-//     }).catch((err) => console.log(err));
-// };
-
 iexApi.getQuote = async (symbol) => {
     try{
         const {data:response} = await axios({
@@ -92,7 +78,7 @@ iexApi.getMarketTrend = async (trend) => {
             dataResponse: "json",
             params: {
                 token: iexApi.token,
-                listLimit: 5,
+                listLimit: 10,
             },
         });
         return response;
