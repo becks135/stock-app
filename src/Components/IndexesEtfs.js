@@ -19,9 +19,11 @@ const IndexesEtfs = () => {
       <ul className="indexes-etfs">
         {
             listOfEtfs.map((etf, index)=>{
-                return(
-                    <StockTileAPI key={index} symbol={etf} />
-                )
+                return (
+                  <li key={index} className="stock-tile">
+                    <StockTileAPI symbol={etf} />
+                  </li>
+                );
             })
         }
       </ul>

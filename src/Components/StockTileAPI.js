@@ -14,8 +14,7 @@ const StockTileAPI = ({symbol}) => {
     },[])
 
     return (
-        // TODO: change back to div and put li at parent level
-        <li className="stock-tile">
+        <>
             {stockInfo ? (
             <>
                 <p>{stockInfo.companyName}</p>
@@ -33,7 +32,7 @@ const StockTileAPI = ({symbol}) => {
                 </p>
             </>
             ) : null}
-        </li>
+        </>
     );
 }
 

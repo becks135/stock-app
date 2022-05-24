@@ -7,6 +7,9 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 //config
 import firebase from "../config/firebase";
 
+//components
+import WatchListItem from "./WatchListItem";
+
 const WatchList = () => {
     const [watchListItems, setWatchListItems] = useState([]);
     const userId = "guest";
@@ -47,8 +50,8 @@ const WatchList = () => {
                 (watchListItems.map((stock) => {
                     return (
                         <li key={stock}>
-                            <p>{stock}</p>
-                            {/* <WatchListItem item={stock} /> */}
+                            {/* <p>{stock}</p> */}
+                            <WatchListItem symbol={stock} />
                         </li>
                     )})
                 )
