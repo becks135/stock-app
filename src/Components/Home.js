@@ -41,7 +41,7 @@ function Home(){
       <>
         <h1>Welcome Home</h1>
         <Link to="/">Sign In</Link>
-        {/* <IndexesEtfs /> */}
+        <IndexesEtfs />
 
         <form
           onSubmit={(e) => {
