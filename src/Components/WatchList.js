@@ -2,7 +2,7 @@
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 //config
 import firebase from "../config/firebase";
@@ -39,7 +39,7 @@ const WatchList = () => {
             <div>
                 <h2>Watchlist</h2>
                 <button>
-                    <FontAwesomeIcon icon={faCircleXmark} className="close-icon" />
+                    <FontAwesomeIcon icon={faXmark} className="close-icon" />
                 </button>
             </div>
             <ul>

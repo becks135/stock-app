@@ -3,9 +3,11 @@
 
 @import "./partials/setup";
 @import "./partials/general";
+@import "./partials/variables";
 
 
 // components
 @import "./partials/Components/IndexesEtfs";
 @import "./partials/Components/StockTile";
 @import "./partials/Components/SearchBar";
+@import "./partials/Components/WatchList";
