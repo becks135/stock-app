@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const SearchBar = ({placeholderText, handleSubmit}) => {
+const SearchBar = ({placeholderText, inputId, handleSubmit}) => {
     return(
-        <form>
-            <label htmlFor="search-query" className="sr-only">{placeholderText}</label>
-            <input type="text" name="search-query" id="search-query" placeholder={placeholderText}/>
-            <button onClick={handleSubmit}>
+        <form className="search-bar">
+            <label htmlFor={inputId} className="sr-only">{placeholderText}</label>
+            <input type="text" name={inputId} id={inputId} placeholder={placeholderText}/>
+            <button 
+                onClick={e=>handleSubmit(e)}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
         </form>

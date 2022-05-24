@@ -30,7 +30,9 @@ function Home(){
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const userQuery = document.getElementById("stockInput").value;
+        //todo - if empty, display error and do nothing
         setSearchInput(userQuery);
+        setDisplay(true);
     };
 
     const handleTrendChange = (e) => {
@@ -40,7 +42,11 @@ function Home(){
 
     return (
       <>
-        <SearchBar />
+        <SearchBar
+          placeholderText="Enter company name or stock symbol"
+          inputId="stockInput"
+          handleSubmit={handleFormSubmit}
+        />
         <h1>Welcome Home</h1>
         <Link to="/">Sign In</Link>
         <IndexesEtfs />
@@ -48,7 +54,7 @@ function Home(){
         <form
           onSubmit={(e) => {
             handleFormSubmit(e);
-            setDisplay(true);
+            // setDisplay(true);
           }}
         >
           <input type="text" id="stockInput" />

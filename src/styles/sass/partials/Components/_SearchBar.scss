@@ -1,0 +1,17 @@
+.search-bar {
+    position: relative;
+
+    input[type="text"]{
+        width:100%;
+        padding:10px 30px 10px 10px;
+    }
+
+    button{
+        background: none;
+        border:none;
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:5px;
+    }
+}
