@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import iexApi from "../modules/iexApi";
+import { useNavigate } from "react-router-dom";
 
 //components
 import IndexesEtfs from "./IndexesEtfs";
@@ -16,6 +17,7 @@ function Home(){
     const [stockSymbol, setStockSymbol] = new useState("");
     const [searchInput, setSearchInput] = new useState(null);
     const [selectedTrend, setSelectedTrend] = new useState("mostactive");
+    let navigate = useNavigate();  //todo: change to const?
 
     useEffect(() => {
     if (searchInput) {
@@ -27,12 +29,20 @@ function Home(){
     }
     }, [searchInput, setStockSymbol]);
 
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const userQuery = document.getElementById("stockInput").value;
         //todo - if empty, display error and do nothing
-        setSearchInput(userQuery);
-        setDisplay(true);
+        if (userQuery) {
+          let searchSymbol;
+          const fetchData = async (searchQuery) => {
+            let data = await iexApi.searchForSymbol(searchQuery);
+            let path = `/stockdetails/${data[0].symbol}`;
+            navigate(path);
+          };
+          fetchData(userQuery);
+        }
     };
 
     const handleTrendChange = (e) => {
@@ -42,16 +52,17 @@ function Home(){
 
     return (
       <>
+        <h1>Welcome Home</h1>
+        <Link to="/">Sign In</Link>
+        <IndexesEtfs />
         <SearchBar
+          className="home-search-bar"
           placeholderText="Enter company name or stock symbol"
           inputId="stockInput"
           handleSubmit={handleFormSubmit}
         />
-        <h1>Welcome Home</h1>
-        <Link to="/">Sign In</Link>
-        <IndexesEtfs />
 
-        <form
+        {/* <form
           onSubmit={(e) => {
             handleFormSubmit(e);
             // setDisplay(true);
@@ -59,12 +70,12 @@ function Home(){
         >
           <input type="text" id="stockInput" />
           <button type="submit">Go</button>
-        </form>
+        </form> */}
 
-        {display && stockSymbol ? (
+        {/* {display && stockSymbol ? (
           <StockDetails symbol={stockSymbol} />
         ) : (
-          <>
+          <> */}
             <fieldset className="trend-options">
               <legend>Market trend</legend>
               <input
@@ -102,8 +113,8 @@ function Home(){
             </fieldset>
             <TrendList trendType={selectedTrend} />
           </>
-        )}
-      </>
+        // )}
+      // </>
     );
 }
 
