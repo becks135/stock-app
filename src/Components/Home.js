@@ -5,6 +5,7 @@ import iexApi from "../modules/iexApi";
 
 //components
 import IndexesEtfs from "./IndexesEtfs";
+import SearchBar from "./Searchbar";
 import StockDetails from "./StockDetails";
 import TrendList from "./TrendList";
 
@@ -39,6 +40,7 @@ function Home(){
 
     return (
       <>
+        <SearchBar />
         <h1>Welcome Home</h1>
         <Link to="/">Sign In</Link>
         <IndexesEtfs />
