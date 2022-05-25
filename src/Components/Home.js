@@ -13,21 +13,21 @@ import TrendList from "./TrendList";
 
 function Home(){
    
-    const [display, setDisplay] = new useState(false);
-    const [stockSymbol, setStockSymbol] = new useState("");
-    const [searchInput, setSearchInput] = new useState(null);
+    // const [display, setDisplay] = new useState(false);
+    // const [stockSymbol, setStockSymbol] = new useState("");
+    // const [searchInput, setSearchInput] = new useState(null);
     const [selectedTrend, setSelectedTrend] = new useState("mostactive");
     const navigate = useNavigate();  //todo: change to const?
 
-    useEffect(() => {
-    if (searchInput) {
-        const fetchData = async (searchQuery) => {
-            let data = await iexApi.searchForSymbol(searchQuery);
-            setStockSymbol(data[0].symbol);
-        };
-        fetchData(searchInput);
-    }
-    }, [searchInput, setStockSymbol]);
+    // useEffect(() => {
+    // if (searchInput) {
+    //     const fetchData = async (searchQuery) => {
+    //         let data = await iexApi.searchForSymbol(searchQuery);
+    //         setStockSymbol(data[0].symbol);
+    //     };
+    //     fetchData(searchInput);
+    // }
+    // }, [searchInput, setStockSymbol]);
 
 
     const handleFormSubmit = (e) => {

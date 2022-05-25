@@ -12,30 +12,29 @@ const StockTileAPI = ({symbol}) => {
             setStockInfo(data);
         };
         fetchQuoteData(symbol);
-    },[])
+    },[symbol])
 
     return (
         <>
-        {stockInfo ? (
+            {stockInfo ? (
             <>
                 <Link to={`/stockdetails/${symbol}`}>
-                {stockInfo.companyName} ({symbol})
+                    <p>{stockInfo.companyName} ({symbol})</p>
+                    <p className="stock-tile-price">
+                        {stockInfo.latestPrice}
+                        {stockInfo.change >= 0 ? (
+                        <span className="positive-change">{`+${stockInfo.change} (+${(
+                            stockInfo.changePercent * 100
+                        ).toFixed(2)}%)`}</span>
+                        ) : (
+                        <span className="negative-change">{`${stockInfo.change} (${(
+                            stockInfo.changePercent * 100
+                        ).toFixed(2)}%)`}</span>
+                        )}
+                    </p>
                 </Link>
-            
-                <p className="stock-tile-price">
-                {stockInfo.latestPrice}
-                {stockInfo.change >= 0 ? (
-                    <span className="positive-change">{`+${stockInfo.change} (+${(
-                    stockInfo.changePercent * 100
-                    ).toFixed(2)}%)`}</span>
-                ) : (
-                    <span className="negative-change">{`${stockInfo.change} (${(
-                    stockInfo.changePercent * 100
-                    ).toFixed(2)}%)`}</span>
-                )}
-                </p>
             </>
-        ) : null}
+            ) : null}
         </>
     );
 }

@@ -49,11 +49,11 @@ const WatchList = () => {
                 (<li>No securities in watch list</li>) : 
                 (watchListItems.map((stock) => {
                     return (
-                        <li key={stock}>
-                            {/* <p>{stock}</p> */}
-                            <WatchListItem symbol={stock} />
-                        </li>
-                    )})
+                      <li key={stock} className="watchlist-item-container">
+                        {/* <p>{stock}</p> */}
+                        <WatchListItem symbol={stock} />
+                      </li>
+                    );})
                 )
             }
             </ul>

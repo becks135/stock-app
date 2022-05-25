@@ -30,12 +30,14 @@ function App() {
 
     return (
       <div className="App">
-        <WatchList />
-        <Routes>
-          <Route path="/" element={<SignIn />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/stockdetails/:symbol" element={<StockDetailsPage />} />
-        </Routes>
+        <div className="wrapper">
+          {/* <WatchList /> */}
+          <Routes>
+            <Route path="/" element={<SignIn />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/stockdetails/:symbol" element={<StockDetailsPage />} />
+          </Routes>
+        </div>
       </div>
     );
 }

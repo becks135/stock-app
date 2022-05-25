@@ -1,12 +1,68 @@
-// .watch-list{
-//     position:fixed;
-//     top:0;
-//     // right:-700px;
-//     width:600px;
-//     padding:30px;
-//     background-color: lightcyan;
-//     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-//     overflow-y: scroll;
-//     max-height: calc(100vh - 100px);
-//     z-index:20;
-// }
+.watch-list{
+    position:fixed;
+    top:0;
+    right:-700px;
+    width:800px;
+    height:100vh;
+    padding:30px 5px;
+    background-color: $clr-light-01;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overflow-y: scroll;
+    max-height: calc(100vh - 100px);
+    z-index:20;
+}
+
+.watchlist-item-container{
+    
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    padding:15px 25px;
+    // margin-top:30px;
+    border-top: 1px dotted $clr-dark-03;
+    align-items: center;
+
+    button{
+        background: none;
+        border:none;
+        cursor: pointer;
+        font-size: 2.5rem;
+        color:$clr-dark-03;
+
+        &:hover,
+        &:focus{
+            color:$clr-dark-01;
+        }
+    }
+
+    &:hover{
+        background-color: $clr-light-02;
+    }
+}
+
+.watchlist-item {
+    width:90%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+    .stock-symbol{
+        width:10%;
+    }
+
+    .stock-name {
+        width:60%;
+    }
+
+    .stock-price {
+        width:10%
+    }
+
+    .stock-change{
+        width:10%;
+        text-align: center;
+    }
+
+}
+
