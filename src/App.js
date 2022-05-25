@@ -13,6 +13,7 @@ import Home from './Components/Home';
 import SignIn from './Components/SignIn';
 import StockDetailsPage from "./Components/StockDetailsPage";
 import WatchList from "./Components/WatchList";
+import Nav from "./Components/Nav";
 
 
 
@@ -30,6 +31,7 @@ function App() {
 
     return (
       <div className="App">
+        <Nav />
         <div className="wrapper">
           {/* <WatchList /> */}
           <Routes>

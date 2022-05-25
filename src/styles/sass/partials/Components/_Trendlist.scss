@@ -1,0 +1,41 @@
+.trend-list {
+    h2 {
+        font-size: 1.5rem;
+        font-weight:400;
+    }
+}
+
+.trend-list-item {
+    &>a{
+        display:flex;
+        width:100%;
+        justify-content: space-between;
+        padding:15px 25px;
+        // margin-top:30px;
+        border-top: 1px dotted $clr-dark-03;
+        align-items: center;
+
+        &:hover{
+            background-color: $clr-light-02;
+            // font-weight: 500;
+        }
+    }
+
+    .stock-symbol{
+        width:10%;
+    }
+
+    .stock-name {
+        width:60%;
+    }
+
+    .stock-price {
+        width:10%;
+        text-align: right;
+    }
+
+    .stock-change{
+        width:20%;
+        text-align: right;
+    }
+}

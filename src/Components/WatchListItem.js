@@ -34,15 +34,15 @@ const WatchListItem = ({symbol}) => {
                 <p className="stock-symbol">({symbol})</p>
                 <p className="stock-name">{stockInfo.companyName}</p>
                 <p className="stock-price">${stockInfo.latestPrice}</p>
-                    {stockInfo.change >= 0 ? (
-                    <p className="stock-change positive-change">{`+${stockInfo.change} (+${(
-                        stockInfo.changePercent * 100
-                    ).toFixed(2)}%)`}</p>
-                    ) : (
-                    <p className="stock-change negative-change">{`${stockInfo.change} (${(
-                        stockInfo.changePercent * 100
-                    ).toFixed(2)}%)`}</p>
-                    )}
+                {stockInfo.change >= 0 ? (
+                <p className="stock-change positive-change">{`+${stockInfo.change} (+${(
+                    stockInfo.changePercent * 100
+                ).toFixed(2)}%)`}</p>
+                ) : (
+                <p className="stock-change negative-change">{`${stockInfo.change} (${(
+                    stockInfo.changePercent * 100
+                ).toFixed(2)}%)`}</p>
+                )}
             </Link>
             <button onClick={() => {removeStockFromList(symbol)}}>
                 <FontAwesomeIcon icon={faCircleXmark} className="close-icon" />

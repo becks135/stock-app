@@ -30,6 +30,7 @@ function Home(){
     // }, [searchInput, setStockSymbol]);
 
 
+    //Todo : move this functionality into the search bar
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const userQuery = document.getElementById("stockInput").value;
@@ -52,69 +53,57 @@ function Home(){
 
     return (
       <>
-        <h1>Welcome Home</h1>
-        <Link to="/">Sign In</Link>
-        <IndexesEtfs />
-        <SearchBar
-          className="home-search-bar"
-          placeholderText="Enter company name or stock symbol"
-          inputId="stockInput"
-          handleSubmit={handleFormSubmit}
-        />
+        {/* <Link to="/">Sign In</Link> */}
+        <h1>Search the stock market for your next investment.</h1>
+        
+        {/* <IndexesEtfs /> */}
+        <div className="home-search-bar">
+          <SearchBar
+            placeholderText="Enter company name or stock symbol"
+            inputId="stockInput"
+            handleSubmit={handleFormSubmit}
+          />
+        </div>
+        <div className="trend-list-container">
+          <fieldset className="trend-options">
+            <legend>Market trend</legend>
+            <input
+              type="radio"
+              name="trendOption"
+              id="most-active"
+              value="mostactive"
+              className="trendOption"
+              checked={selectedTrend === "mostactive"}
+              onChange={handleTrendChange}
+            />
+            <label htmlFor="most-active">Most active</label>
 
-        {/* <form
-          onSubmit={(e) => {
-            handleFormSubmit(e);
-            // setDisplay(true);
-          }}
-        >
-          <input type="text" id="stockInput" />
-          <button type="submit">Go</button>
-        </form> */}
+            <input
+              type="radio"
+              name="trendOption"
+              id="gainers"
+              value="gainers"
+              className="trendOption"
+              checked={selectedTrend === "gainers"}
+              onChange={handleTrendChange}
+            />
+            <label htmlFor="gainers">Gainers</label>
 
-        {/* {display && stockSymbol ? (
-          <StockDetails symbol={stockSymbol} />
-        ) : (
-          <> */}
-            <fieldset className="trend-options">
-              <legend>Market trend</legend>
-              <input
-                type="radio"
-                name="trendOption"
-                id="most-active"
-                value="mostactive"
-                className="trendOption"
-                checked={selectedTrend === "mostactive"}
-                onChange={handleTrendChange}
-              />
-              <label htmlFor="most-active">Most active</label>
+            <input
+              type="radio"
+              name="trendOption"
+              id="losers"
+              value="losers"
+              className="trendOption"
+              checked={selectedTrend === "losers"}
+              onChange={handleTrendChange}
+            />
+            <label htmlFor="losers">Losers</label>
+          </fieldset>
 
-              <input
-                type="radio"
-                name="trendOption"
-                id="gainers"
-                value="gainers"
-                className="trendOption"
-                checked={selectedTrend === "gainers"}
-                onChange={handleTrendChange}
-              />
-              <label htmlFor="gainers">Gainers</label>
-
-              <input
-                type="radio"
-                name="trendOption"
-                id="losers"
-                value="losers"
-                className="trendOption"
-                checked={selectedTrend === "losers"}
-                onChange={handleTrendChange}
-              />
-              <label htmlFor="losers">Losers</label>
-            </fieldset>
-            <TrendList trendType={selectedTrend} />
-          </>
-        // )}
-      // </>
+          <TrendList trendType={selectedTrend} />
+        </div>
+      </>
     );
 }
 
