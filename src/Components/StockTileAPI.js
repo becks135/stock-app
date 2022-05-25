@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import iexApi from "../modules/iexApi";
 
 const StockTileAPI = ({symbol}) => {
@@ -15,9 +16,12 @@ const StockTileAPI = ({symbol}) => {
 
     return (
         <>
-            {stockInfo ? (
+        {stockInfo ? (
             <>
-                <p>{stockInfo.companyName}</p>
+                <Link to={`/stockdetails/${symbol}`}>
+                {stockInfo.companyName} ({symbol})
+                </Link>
+            
                 <p className="stock-tile-price">
                 {stockInfo.latestPrice}
                 {stockInfo.change >= 0 ? (
@@ -31,7 +35,7 @@ const StockTileAPI = ({symbol}) => {
                 )}
                 </p>
             </>
-            ) : null}
+        ) : null}
         </>
     );
 }
