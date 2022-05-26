@@ -5,7 +5,7 @@ import axios from "axios";
 const iexApi = {};
 
 //IEX sandbox is used for testing and displays fake pricing information. Set useSandbox to true to use test data and 
-iexApi.useSandbox = true;
+iexApi.useSandbox = false;
 if (iexApi.useSandbox) {
     iexApi.urlBase = "https://sandbox.iexapis.com/stable";
     iexApi.token = process.env.REACT_APP_IEX_TOKEN_SANDBOX;

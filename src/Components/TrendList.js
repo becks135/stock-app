@@ -22,9 +22,9 @@ const TrendList = ({trendType}) => {
     }
 
     const listDescription = {
-        mostactive: "The stocks or funds with the highest trading volume",
-        gainers: "The top gaining stocks or funds (by percent change)",
-        losers: "The top losing stocks or funds (by percent change)"
+        mostactive: "Stocks or funds with the highest trading volume",
+        gainers: "Top gaining stocks or funds (by percent change)",
+        losers: "Top losing stocks or funds (by percent change)"
     }
 
 //display first 5 items on page

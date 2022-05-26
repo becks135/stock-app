@@ -1,0 +1,15 @@
+.latest-news{
+    border-top:1px solid $clr-light-03;
+}
+
+.news-blurb {
+    display:grid;
+    grid-template-columns: 1fr 5fr;
+    gap:20px;
+
+    // .news-image {
+    //     width:30%;
+    // }
+
+    
+}

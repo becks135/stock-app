@@ -55,18 +55,19 @@ const StockDetails = ({symbol}) => {
     return(
         <>
             {stockInfo?(
-                <>
-                    <StockPriceSummary 
-                        name={stockInfo.companyName}
-                        symbol={symbol}
-                        price={stockInfo.latestPrice}
-                        change={stockInfo.change}
-                        changePercent={stockInfo.changePercent}
-                        date={stockInfo.latestUpdate}
-                        dateType="ms"
-                    />
-
-                    <button onClick={handleAddToWatchList}>Add to watchlist</button>
+                <div className="stock-details-container">
+                    <div className="stock-main-summary">
+                        <StockPriceSummary 
+                            name={stockInfo.companyName}
+                            symbol={symbol}
+                            price={stockInfo.latestPrice}
+                            change={stockInfo.change}
+                            changePercent={stockInfo.changePercent}
+                            date={stockInfo.latestUpdate}
+                            dateType="ms"
+                        />
+                        <button onClick={handleAddToWatchList}>Add to watchlist</button>
+                    </div>
 
                     <HistoricalChart symbol={symbol}/>
 
@@ -82,7 +83,7 @@ const StockDetails = ({symbol}) => {
 
                     <NewsAPI symbol={symbol}/>
 
-                </>)
+                </div>)
             :
                 <p>Loading...</p>
             }

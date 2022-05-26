@@ -67,8 +67,8 @@ const HistoricalChart = ({symbol}) => {
     }
 
     return (
-      <>
-        <h2>Historical Chart</h2>
+      <div className="historical-chart">
+        {/* <h2>Historical Chart</h2> */}
 
         <fieldset className="chart-labels">
           <legend>Date range for historical chart</legend>
@@ -145,7 +145,7 @@ const HistoricalChart = ({symbol}) => {
           data={historicalData}
           options={options}
         />
-      </>
+      </div>
     );
 }
 

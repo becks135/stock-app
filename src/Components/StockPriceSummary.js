@@ -8,20 +8,20 @@ const StockPriceSummary = ({name,symbol,price,change, changePercent,date, dateTy
 
     return (
         <div className="stock-summary">
-            <p>{`${name} (${symbol})`}</p>
+            <h2>{`${name} (${symbol})`}</h2>
             <p className="stock-price">
-            {price}
-            {change >= 0 ? (
-                <span className="positive-change">{`+${change} (+${(
-                changePercent * 100
-                ).toFixed(2)}%)`}</span>
-            ) : (
-                <span className="negative-change">{`${change} (${(
-                changePercent * 100
-                ).toFixed(2)}%)`}</span>
-            )}
+                <span className="price">${price}</span>
+                {change >= 0 ? (
+                    <span className="positive-change">{`+${change} (+${(
+                    changePercent * 100
+                    ).toFixed(2)}%)`}</span>
+                ) : (
+                    <span className="negative-change">{`${change} (${(
+                    changePercent * 100
+                    ).toFixed(2)}%)`}</span>
+                )}
             </p>
-            <p>{date}</p>
+            <p className="date">{date}</p>
         </div>
     );
 }
