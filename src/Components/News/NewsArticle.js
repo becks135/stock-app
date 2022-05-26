@@ -7,17 +7,17 @@ const NewsArticle = ({source, dateTime, dateType, headline, summary, imgSrc, url
     }
 
     return(
-        <>
+        <a href={url} className="news-blurb" target="_blank" rel="noopener noreferrer">
             <div className="news-image">
                 <img src={imgSrc} alt={headline}/>
             </div>
-            <div className="news-headline">
-                <p>{source}</p>
-                <p>{dateTime}</p>
-                <p><a href={url} target="_blank" rel="noopener noreferrer">{headline}</a></p>
-                <p>{summary}</p>
+            <div>
+                <h4 className="news-headline">{headline}</h4>
+                <p className="news-source">Source: {source}</p>
+                <p className="news-date">{dateTime}</p>
+                <p className="news-summary">{summary}</p>
             </div>
-        </>
+        </a>
     )
 }
 

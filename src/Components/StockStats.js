@@ -3,7 +3,7 @@ import { convertNumber } from "../modules/calculations";
 const StockStats = ({ previousClose, yearHigh, yearLow, marketCap, volume, peRatio, primaryExchange, currency, aboutCompany }) => {
     return (
         <div className="stock-stats">
-            <p>Summary</p>
+            <h3>Summary</h3>
             <p>
                 <span className="label">Previous Close: </span>${previousClose}
             </p>

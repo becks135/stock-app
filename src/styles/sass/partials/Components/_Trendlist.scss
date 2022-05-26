@@ -15,7 +15,8 @@
         border-top: 1px dotted $clr-dark-03;
         align-items: center;
 
-        &:hover{
+        &:hover,
+        &:focus{
             background-color: $clr-light-02;
             // font-weight: 500;
         }

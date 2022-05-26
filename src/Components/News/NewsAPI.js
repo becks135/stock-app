@@ -4,7 +4,7 @@ import NewsArticle from "./NewsArticle";
 
 const NewsAPI = ({symbol}) => {
     const [newsData, setNewsData] = useState([]);
-    const numberOfArticles = 1
+    const numberOfArticles = 3;
 
     //get news data from API
 
@@ -27,7 +27,7 @@ const NewsAPI = ({symbol}) => {
                     newsData? 
                         newsData.map(article => {
                             return(
-                                <li className="news-blurb" key={`${article.datetime}_${article.source}`}>
+                                <li key={`${article.datetime}_${article.source}`}>
                                     <NewsArticle
                                         source={article.source}
                                         dateTime={article.datetime}

@@ -80,5 +80,35 @@
     .latest-news {
         grid-area: news;
     }
+}
 
+//media-queries
+@media(max-width:950px){
+    .stock-details-container {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "summary stats"
+            "chart chart "
+            "news news";
+    
+    
+    }
+}
+
+@media(max-width:700px){
+    .stock-details-container {
+        grid-template-areas:
+            "summary"
+            "chart"
+            "stats"
+            "news";
+    }
+}
+
+@media(max-width:550px){
+    .stock-details-container {
+        border-radius: 0;
+        margin:0;
+    }
 }

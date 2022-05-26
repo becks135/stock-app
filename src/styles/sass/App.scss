@@ -6,7 +6,6 @@
 @import "./partials/general";
 
 
-
 // components
 @import "./partials/Components/IndexesEtfs";
 @import "./partials/Components/StockTile";
@@ -16,4 +15,7 @@
 @import "./partials/Components/Nav";
 @import "./partials/Components/Home";
 @import "./partials/Components/StockDetails";
-@import "./partials/Components/News"
+@import "./partials/Components/News";
+
+//media queries
+@import "./partials/mediaQueries";
