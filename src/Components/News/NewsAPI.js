@@ -4,12 +4,13 @@ import NewsArticle from "./NewsArticle";
 
 const NewsAPI = ({symbol}) => {
     const [newsData, setNewsData] = useState([]);
+    const numberOfArticles = 1
 
     //get news data from API
 
     useEffect(()=>{
         const fetchNewsData = async (symbol) => {
-            let data = await iexApi.getLatestNews(symbol,3);
+            let data = await iexApi.getLatestNews(symbol,numberOfArticles);
             setNewsData(data);
         }
 
@@ -19,36 +20,31 @@ const NewsAPI = ({symbol}) => {
 
 
     return(
-        <ul>
-            {
-                newsData? 
-                    newsData.map(article => {
-                        return(
-                            <li key={`${article.datetime}_${article.source}`}>
-                                <NewsArticle
-                                    source={article.source}
-                                    dateTime={article.datetime}
-                                    dateType="ms"
-                                    headline={article.headline}
-                                    summary={article.summary}
-                                    imgSrc={article.image}
-                                    url={article.url}
-                                />
-                            </li>
-                        )
-                    })
-                :
-                    <li>loading news...</li>
-            }
-        </ul>
-    //     <NewsArticle
-    //         source={}
-    //         dateTime={}
-    //         dateType={}
-    //         headline={}
-    //         summary={}
-    //         imgSrc={}
-    //     />
+        <section className="latest-news">
+            <h3>Latest News</h3>
+            <ul className="news-articles">
+                {
+                    newsData? 
+                        newsData.map(article => {
+                            return(
+                                <li className="news-blurb" key={`${article.datetime}_${article.source}`}>
+                                    <NewsArticle
+                                        source={article.source}
+                                        dateTime={article.datetime}
+                                        dateType="ms"
+                                        headline={article.headline}
+                                        summary={article.summary}
+                                        imgSrc={article.image}
+                                        url={article.url}
+                                    />
+                                </li>
+                            )
+                        })
+                    :
+                        <li>loading news...</li>
+                }
+            </ul>
+        </section>
     )
 }
 
