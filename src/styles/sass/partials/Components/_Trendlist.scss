@@ -6,8 +6,9 @@
 }
 
 .trend-list-item {
-    &>a{
+    a{
         display:flex;
+        gap:10px;
         width:100%;
         justify-content: space-between;
         padding:15px 25px;
@@ -23,20 +24,20 @@
     }
 
     .stock-symbol{
-        width:10%;
+        flex-basis:10%;
     }
 
     .stock-name {
-        width:60%;
+        flex-basis:55%;
     }
 
     .stock-price {
-        width:10%;
+        flex-basis:10%;
         text-align: right;
     }
 
     .stock-change{
-        width:20%;
+        flex-basis:25%;
         text-align: right;
     }
 }
