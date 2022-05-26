@@ -3,6 +3,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { hideWatchList } from "../modules/watchListMenu";
 
 //config
 import firebase from "../config/firebase";
@@ -38,7 +39,7 @@ const WatchList = () => {
         <div className="watch-list">
             <div>
                 <h2>Watchlist</h2>
-                <button>
+                <button className="close-button" onClick={hideWatchList}>
                     <FontAwesomeIcon icon={faXmark} className="close-icon" />
                 </button>
             </div>

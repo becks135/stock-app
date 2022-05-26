@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { showWatchList } from "../modules/watchListMenu";
 
 function Nav(props){
   // Todo add props - watchlist counter?
@@ -30,7 +31,7 @@ function Nav(props){
           </Link>
           <div className="navigation-menu">
             <div>
-              <button>View Watchlist</button>
+              <button onClick={showWatchList}>View Watchlist</button>
               <button>Sign in</button>
             </div>
           </div>

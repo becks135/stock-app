@@ -33,7 +33,7 @@ function App() {
       <div className="App">
         <Nav />
         <div className="wrapper">
-          {/* <WatchList /> */}
+          <WatchList />
           <Routes>
             <Route path="/" element={<SignIn />} />
             <Route path="/home" element={<Home />} />
