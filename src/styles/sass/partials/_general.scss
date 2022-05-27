@@ -46,7 +46,7 @@ fieldset {
 
     input[type=radio]:focus + label {
         background-color: #d6d4e0;
-        border:1px dotted blue;
+        border:1px dashed $clr-contrast-02;
     }
 
     input[type=radio] + label:hover,
@@ -91,7 +91,6 @@ a{
     margin:0 auto;
     width:85%;
     max-width:1200px;
-    // background-color: $clr-light-02;
 }
 
 .positive-change{
@@ -101,12 +100,6 @@ a{
 .negative-change{
     color:rgb(172, 0, 0);
 }
-
-// .App{
-//     // filter:grayscale(80%);
-//     background-image: url("../../../assets/oren-elbaz-Wf1opKy4iaI-unsplash.jpg");
-//     background-size:cover;
-// }
 
 .button{
     padding: 10px;
@@ -120,7 +113,6 @@ a{
     transition:all 0.3s;
     font-family: 'Poppins', sans-serif;
     
-
     &:hover,
     &:focus{
         background-color: $clr-light-02;
