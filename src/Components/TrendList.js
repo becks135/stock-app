@@ -30,8 +30,13 @@ const TrendList = ({trendType}) => {
 //display first 5 items on page
     return(
         <div className="trend-list">
-            {/* <h2>{listHeading[trendType]}</h2> */}
-            <h2>{listDescription[trendType]}</h2>
+            
+
+            {/* if beginning of trading day or on weekend, trend list will be empty. */}
+            {trendData.length === 0?
+            (<p>No stocks traded as yet today. {listHeading[trendType]} will be displayed after markets open.</p>):
+            <h2>{listDescription[trendType]}</h2>}
+            
             <ul>
                 {trendData.map(company => {
                     return(
