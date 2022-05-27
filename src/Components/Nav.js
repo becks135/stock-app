@@ -21,11 +21,11 @@ function Nav(props){
     return (
       <nav>
         <div className="outer-wrapper">
-          <button className="menu-button" aria-hidden="true" onClick={toggleMenu}>
+          {/* <button className="menu-button" aria-hidden="true" onClick={toggleMenu}>
             <span className="line"></span>
             <span className="line"></span>
             <span className="line"></span>
-          </button>
+          </button> */}
 
           <Link to="/home">
             <p><FontAwesomeIcon icon={faCoins}/></p>
@@ -33,7 +33,7 @@ function Nav(props){
           <div className="navigation-menu">
             <div>
               <button className="button" onClick={showWatchList}>View Watchlist</button>
-              <button className="button">Sign in</button>
+              {/* <button className="button">Sign in</button> */}
             </div>
           </div>
         </div>
