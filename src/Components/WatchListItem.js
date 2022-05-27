@@ -31,7 +31,7 @@ const WatchListItem = ({symbol}) => {
         <>
         {/* //todo:add conditional, if stock info or loading.... */}
             <Link to={`/stockdetails/${symbol}`} className="watchlist-item">
-                <p className="stock-symbol">({symbol})</p>
+                <p className="stock-symbol">{symbol}</p>
                 <p className="stock-name">{stockInfo.companyName}</p>
                 <p className="stock-price">${stockInfo.latestPrice}</p>
                 {stockInfo.change >= 0 ? (

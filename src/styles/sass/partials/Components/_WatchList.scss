@@ -62,34 +62,39 @@
         }
     }
 
-    &:hover{
+    &:hover,
+    &:focus{
         background-color: $clr-light-02;
     }
 }
 
 .watchlist-item {
     width:90%;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    gap:10px;
     
+    display:grid;
+    grid-template-columns: 2fr 8fr 2fr 4fr;
+    grid-template-areas: "symbol name price change";
+    gap: 10px;
+    align-items: center;
 
     .stock-symbol{
-        flex-basis:10%;
+        grid-area: symbol;
+        color: $clr-dark-01;
     }
 
     .stock-name {
-        flex-basis:60%;
+        grid-area: name;
     }
 
     .stock-price {
-        flex-basis:10%
+        text-align: right;
+        grid-area: price;
     }
 
     .stock-change{
-        flex-basis:20%;
-        text-align: center;
+        text-align: right;
+        grid-area: change;
+        text-align: right;
     }
 }
 
@@ -99,4 +104,25 @@
         width:100%;
     }
 }
+
+@media(max-width:650px){
+    .watchlist-item{
+        
+        grid-template-areas: 
+        "symbol symbol price change"
+        "name name price change";
+        
+    }
+}
+
+@media(max-width:500px){
+    .watchlist-item{
+        
+        grid-template-areas: 
+        "symbol symbol price price"
+        "name name change change";
+        
+    }
+}
+
 

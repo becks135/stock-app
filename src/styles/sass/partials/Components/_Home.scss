@@ -1,7 +1,7 @@
 h1 {
     padding:100px 40px  60px 40px;
     text-align: center;
-    font-size: 7.0rem;
+    font-size: 6.0rem;
     font-weight: 500;
 }
 
@@ -17,4 +17,17 @@ h1 {
 .home-search-bar{
     max-width:500px;
     margin:0 auto;
+}
+
+//media queries
+@media(max-width:650px){
+    h1{
+        font-size: 5.0rem;
+    }
+}
+
+@media(max-width:450px){
+    h1{
+        font-size: 4.0rem;
+    }
 }

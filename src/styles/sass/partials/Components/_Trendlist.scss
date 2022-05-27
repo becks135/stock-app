@@ -42,25 +42,21 @@
     }
 
     .stock-symbol{
-        flex-basis:10%;
         grid-area: symbol;
         color:$clr-dark-01;
         font-weight: 500;
     }
 
     .stock-name {
-        flex-basis:55%;
         grid-area:name;
     }
 
     .stock-price {
-        flex-basis:10%;
         text-align: right;
         grid-area:price;
     }
 
     .stock-change{
-        flex-basis:25%;
         text-align: right;
         grid-area:change;
     }
