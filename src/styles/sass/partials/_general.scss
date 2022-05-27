@@ -35,15 +35,22 @@ fieldset {
         opacity: 0;
     }
 
-    input[type="radio"] {
+    input[type=radio] {
         position: absolute;
         opacity: 0;
+        width:0;
         transition: all 0.2s;
         cursor:pointer;
+
     }
 
-    input[type="radio"] + label:hover,
-    input[type="radio"] + label:focus{
+    input[type=radio]:focus + label {
+        background-color: #d6d4e0;
+        border:1px dotted blue;
+    }
+
+    input[type=radio] + label:hover,
+    input[type=radio]+ label:focus{
         background-color: #d6d4e0;
     }
 
@@ -115,7 +122,7 @@ a{
     
 
     &:hover,
-    &focus{
+    &:focus{
         background-color: $clr-light-02;
         color:$clr-contrast-01;
         
