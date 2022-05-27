@@ -5,6 +5,7 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import iexApi from "../modules/iexApi";
+import { hideWatchList } from "../modules/watchListMenu";
 
 //config
 import firebase from "../config/firebase";
@@ -30,7 +31,7 @@ const WatchListItem = ({symbol}) => {
     return (
         <>
         {/* //todo:add conditional, if stock info or loading.... */}
-            <Link to={`/stockdetails/${symbol}`} className="watchlist-item">
+            <Link to={`/stockdetails/${symbol}`} className="watchlist-item" onClick={hideWatchList}>
                 <p className="stock-symbol">{symbol}</p>
                 <p className="stock-name">{stockInfo.companyName}</p>
                 <p className="stock-price">${stockInfo.latestPrice}</p>
