@@ -35,7 +35,8 @@ function App() {
         <div className="wrapper">
           <WatchList />
           <Routes>
-            <Route path="/" element={<SignIn />} />
+            {/* <Route path="/" element={<SignIn />} /> */}
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/stockdetails/:symbol" element={<StockDetailsPage />} />
           </Routes>

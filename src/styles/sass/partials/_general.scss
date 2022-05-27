@@ -114,7 +114,7 @@ a{
     font-family: 'Poppins', sans-serif;
     
     &:hover,
-    &:focus{
+    &:focus-visible{
         background-color: $clr-light-02;
         color:$clr-contrast-01;
         
