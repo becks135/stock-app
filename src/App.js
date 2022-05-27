@@ -19,13 +19,13 @@ import Nav from "./Components/Nav";
 
 function App() {
 
-  const userId = "guest";
-  const database = getDatabase(firebase);
-  const watchListRef = ref(database,`${userId}/watchlist`);
+  // const userId = "guest";
+  // const database = getDatabase(firebase);
+  // const watchListRef = ref(database,`${userId}/watchlist`);
 
-  onValue(watchListRef, (response)=>{
-    console.log(response.val());
-  });
+  // onValue(watchListRef, (response)=>{
+  //   console.log(response.val());
+  // });
 
 
 

@@ -27,7 +27,6 @@ function Nav(props){
             <span className="line"></span>
           </button>
 
-          {/* //todo change to link */}
           <Link to="/home">
             <p><FontAwesomeIcon icon={faCoins}/></p>
           </Link>

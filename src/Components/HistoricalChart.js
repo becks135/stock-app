@@ -67,85 +67,93 @@ const HistoricalChart = ({symbol}) => {
     }
 
     return (
-      <div className="historical-chart">
-        {/* <h2>Historical Chart</h2> */}
+      <>
+        {historicalData?
+          (<div className="historical-chart">
+            {/* <h2>Historical Chart</h2> */}
 
-        <fieldset className="chart-labels">
-          <legend>Date range for historical chart</legend>
-          <input
-            type="radio"
-            name="dateRange"
-            id="1w"
-            value="1w"
-            className="dateRange"
-            checked={chartRange === "1w"}
-            onChange={handleRangeChange}
-          />
-          <label htmlFor="1w">1w</label>
+            <fieldset className="chart-labels">
+              <legend>Date range for historical chart</legend>
+              <input
+                type="radio"
+                name="dateRange"
+                id="1w"
+                value="1w"
+                className="dateRange"
+                checked={chartRange === "1w"}
+                onChange={handleRangeChange}
+              />
+              <label htmlFor="1w">1w</label>
 
-          <input
-            type="radio"
-            name="dateRange"
-            id="1m"
-            value="1m"
-            className="dateRange"
-            checked={chartRange === "1m"}
-            onChange={handleRangeChange}
-          />
-          <label htmlFor="1m">1m</label>
+              <input
+                type="radio"
+                name="dateRange"
+                id="1m"
+                value="1m"
+                className="dateRange"
+                checked={chartRange === "1m"}
+                onChange={handleRangeChange}
+              />
+              <label htmlFor="1m">1m</label>
 
-          <input
-            type="radio"
-            name="dateRange"
-            id="3m"
-            value="3m"
-            className="dateRange"
-            checked={chartRange === "3m"}
-            onChange={handleRangeChange}
-          />
-          <label htmlFor="3m">3m</label>
+              <input
+                type="radio"
+                name="dateRange"
+                id="3m"
+                value="3m"
+                className="dateRange"
+                checked={chartRange === "3m"}
+                onChange={handleRangeChange}
+              />
+              <label htmlFor="3m">3m</label>
 
-          <input
-            type="radio"
-            name="dateRange"
-            id="1y"
-            value="1y"
-            className="dateRange"
-            checked={chartRange === "1y"}
-            onChange={handleRangeChange}
-          />
-          <label htmlFor="1y">1y</label>
+              <input
+                type="radio"
+                name="dateRange"
+                id="1y"
+                value="1y"
+                className="dateRange"
+                checked={chartRange === "1y"}
+                onChange={handleRangeChange}
+              />
+              <label htmlFor="1y">1y</label>
 
-          <input
-            type="radio"
-            name="dateRange"
-            id="5y"
-            value="5y"
-            className="dateRange"
-            checked={chartRange === "5y"}
-            onChange={handleRangeChange}
-          />
-          <label htmlFor="5y">5y</label>
+              <input
+                type="radio"
+                name="dateRange"
+                id="5y"
+                value="5y"
+                className="dateRange"
+                checked={chartRange === "5y"}
+                onChange={handleRangeChange}
+              />
+              <label htmlFor="5y">5y</label>
 
-          <input
-            type="radio"
-            name="dateRange"
-            id="10y"
-            value="10y"
-            className="dateRange"
-            checked={chartRange === "10y"}
-            onChange={handleRangeChange}
-          />
-          <label htmlFor="10y">10Y</label>
-        </fieldset>
+              <input
+                type="radio"
+                name="dateRange"
+                id="10y"
+                value="10y"
+                className="dateRange"
+                checked={chartRange === "10y"}
+                onChange={handleRangeChange}
+              />
+              <label htmlFor="10y">10Y</label>
+            </fieldset>
 
-        <Chart
-          chartType="AreaChart"
-          height="400px"
-          data={historicalData}
-          options={options}
-        />
-      </div>
+            <Chart
+              chartType="AreaChart"
+              height="400px"
+              data={historicalData}
+              options={options}
+            />
+
+            <p className="chart-disclaimer">Note: Due to API limits, test data used in chart above. This data mimics real financial data and is used for display purposes only.</p>
+          </div>)
+        :
+          <p>Loading...</p>
+        }
+      </>
     );
 }
 
