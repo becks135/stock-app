@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { showWatchList } from "../modules/watchListMenu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoins } from "@fortawesome/free-solid-svg-icons";
 
 function Nav(props){
   // Todo add props - watchlist counter?
@@ -27,12 +29,12 @@ function Nav(props){
 
           {/* //todo change to link */}
           <Link to="/home">
-            <p>StockApp</p>
+            <p><FontAwesomeIcon icon={faCoins}/></p>
           </Link>
           <div className="navigation-menu">
             <div>
-              <button class="button" onClick={showWatchList}>View Watchlist</button>
-              <button class="button">Sign in</button>
+              <button className="button" onClick={showWatchList}>View Watchlist</button>
+              <button className="button">Sign in</button>
             </div>
           </div>
         </div>

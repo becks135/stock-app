@@ -6,14 +6,32 @@
 }
 
 .trend-list-item {
+    // a{
+    //     display:flex;
+    //     gap:10px;
+    //     width:100%;
+    //     justify-content: space-between;
+    //     padding:15px 25px;
+    //     // margin-top:30px;
+    //     border-top: 1px dotted $clr-dark-03;
+    //     align-items: center;
+
+    //     &:hover,
+    //     &:focus{
+    //         background-color: $clr-light-02;
+    //         // font-weight: 500;
+    //     }
+    // }
     a{
-        display:flex;
-        gap:10px;
         width:100%;
-        justify-content: space-between;
         padding:15px 25px;
-        // margin-top:30px;
         border-top: 1px dotted $clr-dark-03;
+
+        
+        display:grid;
+        grid-template-columns: 1fr 10fr 2fr 4fr;
+        grid-template-areas: "symbol name price change";
+        gap: 10px;
         align-items: center;
 
         &:hover,
@@ -25,19 +43,36 @@
 
     .stock-symbol{
         flex-basis:10%;
+        grid-area: symbol;
+        color:$clr-dark-01;
+        font-weight: 500;
     }
 
     .stock-name {
         flex-basis:55%;
+        grid-area:name;
     }
 
     .stock-price {
         flex-basis:10%;
         text-align: right;
+        grid-area:price;
     }
 
     .stock-change{
         flex-basis:25%;
         text-align: right;
+        grid-area:change;
+    }
+}
+
+//media queries
+@media(max-width:650px){
+    .trend-list-item{
+        a{
+            grid-template-areas: 
+            "symbol symbol price change"
+            "name name price change";
+        }
     }
 }

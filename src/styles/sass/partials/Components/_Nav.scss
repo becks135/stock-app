@@ -18,6 +18,15 @@ nav{
     .button{
         margin-left:10px;
     }
+
+    svg{
+        font-size:3rem;
+
+        &:hover,
+        &:focus{
+            color: $clr-dark-01;
+        }
+    }
 }
 
 .navigation-menu{

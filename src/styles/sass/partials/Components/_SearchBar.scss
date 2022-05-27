@@ -1,8 +1,10 @@
 .search-bar {
     position: relative;
+   
 
     input[type="text"]{
         width:100%;
+        // margin:0 10px;
         padding:15px 40px 15px 20px;
         border-radius: 25px;
         border:none;
@@ -20,4 +22,16 @@
         cursor: pointer;
         font-size: 2.0rem;
     }
+}
+
+//media queries
+@media(max-width:550px){
+    .search-bar{
+        margin: 0 15px;
+    }
+
+    input[type=text]::placeholder{
+        font-size: 1.65rem;
+    }
+    
 }
