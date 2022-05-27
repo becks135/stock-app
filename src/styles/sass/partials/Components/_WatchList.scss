@@ -13,10 +13,16 @@
     
     .close-button{
         background: none;
-        box-shadow: none;
+        border:none;
+        padding:10px;
         color:$clr-dark-01;
         font-size:2.5rem;
+        cursor: pointer;
         
+        &:hover,
+        &:focus{
+            color:$clr-contrast-01;
+        }
     }
 
     &>div{

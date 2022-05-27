@@ -66,7 +66,7 @@ const StockDetails = ({symbol}) => {
                             date={stockInfo.latestUpdate}
                             dateType="ms"
                         />
-                        <button onClick={handleAddToWatchList}>Add to watchlist</button>
+                        <button class="button" onClick={handleAddToWatchList}>Add to watchlist</button>
                     </div>
 
                     <HistoricalChart symbol={symbol}/>

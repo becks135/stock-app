@@ -31,8 +31,8 @@ function Nav(props){
           </Link>
           <div className="navigation-menu">
             <div>
-              <button onClick={showWatchList}>View Watchlist</button>
-              <button>Sign in</button>
+              <button class="button" onClick={showWatchList}>View Watchlist</button>
+              <button class="button">Sign in</button>
             </div>
           </div>
         </div>

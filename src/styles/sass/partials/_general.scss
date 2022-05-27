@@ -101,12 +101,12 @@ a{
 //     background-size:cover;
 // }
 
-button{
+.button{
     padding: 10px;
     background: $clr-contrast-01;
     color:$clr-light-01;
     border:none;
-    margin:5px;
+    // margin:5px;
     border-radius: 20px;
     box-shadow: 0px 1px 2px 0px rgb(60 64 67 / 30%), 0px 1px 3px 1px rgb(60 64 67 / 15%);
     cursor: pointer;
@@ -114,7 +114,8 @@ button{
     font-family: 'Poppins', sans-serif;
     
 
-    &:hover{
+    &:hover,
+    &focus{
         background-color: $clr-light-02;
         color:$clr-contrast-01;
         

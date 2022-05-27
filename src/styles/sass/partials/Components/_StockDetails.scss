@@ -19,6 +19,10 @@
     .stock-main-summary {
         grid-area: summary;
 
+        .stock-summary{
+            margin-bottom:10px;
+        }
+
         h2{
             font-weight: 400;
             font-size:2.8rem;
@@ -57,6 +61,7 @@
 
     .historical-chart{
         grid-area: chart;
+        min-width:0;
     }
 
     .stock-stats{
@@ -92,6 +97,9 @@
             "chart chart "
             "news news";
     
+        .stock-stats{
+            margin-right:10px;
+        }
     
     }
 }
